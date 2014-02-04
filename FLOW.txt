@@ -1,0 +1,98 @@
+Initialize ships
+
+each ship has{
+yellow attack power:
+orange attack power:
+red attack power:
+computer:
+intitation:
+health:
+value:  (This is for artificial intelligence reasons, the idea being that one
+would want to destroy ships that have a greater value first than lesser value)
+side: //either attack or defense
+type:  //novelty
+
+Shield:
+Hull:
+
+//maybe don't need to include except for validation
+Spaces:  extension of a class
+Power:
+}
+
+each power has{
+id:
+description:
+attack:
+hull:
+defense:
+}
+If you have a max splitter, you simply have 4 yellow attack.
+
+
+
+There are going to be functions that deal with
+
+//this is the most difficult part of the simulation, trying to discover the
+//optimal strategy to assign successful attacks
+Single_attack(attacking_ship, opposing_force){
+This will roll the appropriate number of dice for each attacking ship
+need to keep in mind:
+Total # of attacks (number of dice rolled)
+Total damage of all attacks (cumulative damage)
+Array of damage in order of greatest to least 
+}
+
+optimal_damage(successful_attacks, defending_force){
+
+Assign a value to a ship:  
+Bigger ships > smaller ships (perhaps thats the wrong way to think about it)
+Who attacks next?
+Ships with more computer > Ships with less computer
+Ships with more health > Ships with less health
+
+If highest value ship-shield cannot be destroyed with cumulative points, 
+move onto The next
+
+If ship-shield can be destroyed: save ship in destroyed array, subtract dice from optimal_usage
+}
+//COMPLETED :)
+optimal_usage(valid_remaining_dice, defending_ship){
+  
+End result, want valid_remaining_dice to be the maximum total damage and if tie, then we want the greatest number of dice remaining
+
+How do we create outcomes? Separate the dice into different arrays depending on
+value (4,2,1), we take from the max.  If max < or = defense points remaining,
+then put max in used and subtract from total.
+
+If max is greater than defense points remaining,
+put max is possible?, move max into outcome, remove from valid_remaining_dice
+restart algorithm with valid_remaining_dice
+
+Each dice selection creates an outcome object, an outcome object possesses the total number of damage remaining (calculated by adding up the number of damage a die can do) and the number of dice remaining (calculated by the number of dice remaining) and the dice used (for easy calculation).
+
+Outcome_states, organize them by maxDamage - Dice remaining:  Choose the top selection, Remove the dice from the dice selection, and return 
+}
+
+
+optimal_attack(Enemy fleet, dice_pool, your fleet?){
+  You might want your fleet because initiative matters, you may put off attacking a more powerful enemy if you have more chances,  maybe not....
+
+
+
+}
+
+Attack_A { weakest hull > most hull } //The ones you can kill the easiest
+Attack_B { strongest computer > weakest computer; ties_choose_hull } //the ones that can hit you the easiest; ties: choose shotpower }
+Attack_C { strongest shot > weakest shot; ties choose computer
+
+Can you destroy a ship before they attack? Including your roll and
+the probability of subsequent rolls (initiative < enemy and computer favorable minus shield) = destruction
+
+Hull
+Shield
+Computer--?
+AttackPower
+
+Assign a value to each ship:  
+
