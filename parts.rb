@@ -290,7 +290,4 @@ class Ion_disruptor < Parts
     super
   end
 end
-a = Gluon.new
-puts a.shield
-puts a.computer
-puts a.class.name
+
