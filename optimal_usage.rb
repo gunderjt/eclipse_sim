@@ -17,16 +17,20 @@ class Die
     end
   end
   def roll
-    @value = 1 + rand(6)
+    @value = rand(1..6)
+  end
+  def add_computer(comp)
+    @value += comp
   end
 end
 
 class Dice_pool
-  attr_accessor :red, :orange, :yellow, :current_tier
+  attr_accessor :red, :orange, :yellow, :used_dice, :current_tier
   def initialize()
     @red = []
     @orange = []
     @yellow = []
+    @used_dice = []
     @current_tier = 3
   end
   def add_die(die)
@@ -39,9 +43,37 @@ class Dice_pool
       @yellow.push(die).sort_by(&:value).reverse
     end
   end
+  def select_die(tier)
+    case tier
+    when 3
+      @red.last
+    when 2
+      @orange.last
+    else
+      @yellow.last
+    end
+  end
+  def use_die(die)
+    @used_dice.push(die)
+  end
+  def remove_dice(used_dice)
+    used_dice.each do |die|
+      case die.damage
+      when 4
+        result = @red.delete(die)
+      when 2
+        result = @orange.delete(die)
+      else
+        result = @yellow.delete(die)
+      end
+      if result == nil
+        'Error condition: die did not exist'
+      end
+    end
+  end
 end
 
-class Dice_pool
+class Dice_pool_defunct
   attr_accessor :red, :orange, :yellow, :current_tier
   def initialize(red, orange, yellow, current_tier)
     @red = red.sort_by(&:value).reverse

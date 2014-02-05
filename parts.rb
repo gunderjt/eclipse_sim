@@ -16,9 +16,9 @@ class Parts
     @yellow_missle ||=0
     @orange_missle ||=0
     '''Cannon'''
-    @yellow ||=0
-    @orange ||=0
-    @red ||=0
+    @yellow_cannon ||=0
+    @orange_cannon ||=0
+    @red_cannon ||=0
     '''misc'''
     @power_consumption ||=0
     @note ||=nil
@@ -243,9 +243,10 @@ class Flux < Parts
   end
 end
 
+'''Cannon'''
 class Ion < Parts
   def initialize()
-    @yellow = 1
+    @yellow_cannon = 1
     @power_consumption = 1
     super
   end
@@ -253,7 +254,7 @@ end
 
 class Plasma < Parts
   def initialize()
-    @orange = 1
+    @orange_cannon = 1
     @power_consumption = 2
     super
   end
@@ -261,7 +262,7 @@ end
 
 class Antimatter < Parts
   def initialize()
-    @red = 1
+    @red_cannon = 1
     @power_consumption = 4
     super
   end
@@ -269,7 +270,7 @@ end
 
 class Ion_turret < Parts
   def initialize()
-    @yellow = 2
+    @yellow_cannon = 2
     @power_consumption = 1
     super
   end
@@ -277,7 +278,7 @@ end
 
 class Ion_disruptor < Parts
   def initialize()
-    @yellow = 1
+    @yellow_cannon = 1
     @initiative = 3
     super
   end

@@ -3,7 +3,7 @@ require_relative 'optimal_usage.rb'
 require 'ruby-debug'
 
 class Ship 
-  attr_accessor :computer, :initiative, :shield, :hull, :hit_recovery, :drive, :power, :yellow_missle, :orange_missle, :yellow, :orange, :red, :power_consumption, :note, :quantity
+  attr_accessor :computer, :initiative, :shield, :hull, :hit_recovery, :drive, :power, :yellow_missle, :orange_missle, :yellow_cannon, :orange_cannon, :red_cannon, :power_consumption, :note, :quantity
   def initialize(parts, options = {})
     options.each do |k, v|
       instance_variable_set("@#{k}", v)
@@ -22,21 +22,27 @@ class Ship
   end
 
   def destroy_ship?(damage)
-    (@hull = @hull - damage) <=0
+    (@hull -= damage) <=0
   end
-
-  def produce_attack(type)
+  def missle?
+    (@yellow_missle + @orange_missle) > 0
+  end
+  def produce_attack(type = 'cannon')
     attack = ['red','orange','yellow']
     die_pool = Die_pool.new()
-    if(type == 'cannon')
-      attack.each do |color|
-        i = self.instance_variable_get(color)
+    attack.each do |color|
+      if i = self.instance_variable_get("#{color}_#{type}")
         while i > 0
-          Die.new(color)
-          
+          new_die = Die.new(color)
+          new_die.add_computer(@computer)
+          if(new_die.value >= 6)
+            die_pool.add_die(new_die)
+          end
+          i-=1
         end
       end
-    else    
+    end
+    return die_pool
   end
   def print_instance_variables
     self.instance_variables.each do |var|
