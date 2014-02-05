@@ -243,14 +243,6 @@ class Flux < Parts
   end
 end
 
-class Plasma_missle < Parts
-  def initialize()
-    @orange_missle = 2
-    super
-  end
-end
-
-'''Cannons'''
 class Ion < Parts
   def initialize()
     @yellow = 1
