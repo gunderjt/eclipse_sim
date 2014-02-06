@@ -54,11 +54,11 @@ class Dice_pool
     used_dice.each do |die|
       case die.damage
       when 4
-        result = @red.delete(die)
+        result = @red.delete_if{|e| e.id == die.id}
       when 2
-        result = @orange.delete(die)
+        result = @orange.delete_if{|e| e.id == die.id}
       else
-        result = @yellow.delete(die)
+        result = @yellow.delete_if{|e| e.id == die.id}
       end
       if result == nil
         'Error condition: die did not exist'

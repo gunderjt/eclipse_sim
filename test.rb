@@ -1,5 +1,6 @@
 require_relative 'parts.rb'
 require_relative 'optimal_usage.rb'
+require 'ruby-debug'
 
 def test()
 =begin
@@ -22,11 +23,11 @@ puts array1 -array2
   initializeTiers = 2
   'TestA: [4,2,1] : 3 == 2,1'
   red = [Die.new(1,4,2)]
-  orange = [Die.new(2,2,6)] 
+  orange = [Die.new(2,2,6)]
   yellow = [Die.new(3,1,3)]
   poolA = Attack_dice_pool.new(red, orange, yellow, initializeTiers)
   outcomeA = optimal_die_usage(poolA, 3)
-  if testPass(outcomeA, 0, 1, 0, 0)
+  if testPass(outcomeA, 0, 1, 0, 0,[Die.new(2,2,6), Die.new(3,1,3)])
     puts "TestA : pass"
   else
     puts "TestA : fail"
@@ -39,7 +40,7 @@ puts array1 -array2
   yellow = []
   poolB = Attack_dice_pool.new(red, orange, yellow, initializeTiers)
   outcomeB = optimal_die_usage(poolB, 4)
-  if testPass(outcomeB, 0, 0, 2, 0)
+  if testPass(outcomeB, 0, 0, 2, 0,[Die.new(1,4,2)])
     puts "TestB : pass"
   else
     puts "TestB : fail"
@@ -52,7 +53,7 @@ puts array1 -array2
   yellow = [Die.new(4,1,3)]
   pool = Attack_dice_pool.new(red, orange, yellow, initializeTiers)
   outcome = optimal_die_usage(pool, shipDefense)
-  if testPass(outcome, 0, 0, 2, 1)
+  if testPass(outcome, 0, 0, 2, 1,[Die.new(1,4,2)])
     puts "TestC : pass"
   else
     puts "TestC : fail"
@@ -65,7 +66,7 @@ puts array1 -array2
   yellow = [Die.new(4,1,3)]
   pool = Attack_dice_pool.new(red, orange, yellow, initializeTiers)
   outcome = optimal_die_usage(pool, shipDefense)
-  if testPass(outcome, 0, 0, 1, 1)
+  if testPass(outcome, 0, 0, 1, 1,[Die.new(1,4,2), Die.new(3,2,3)])
     puts "TestD : pass"
   else
     puts "TestD : fail"
@@ -78,7 +79,7 @@ puts array1 -array2
   yellow = [Die.new(4,1,3)]
   pool = Attack_dice_pool.new(red, orange, yellow, initializeTiers)
   outcome = optimal_die_usage(pool, shipDefense)
-  if testPass(outcome, 0, 0, 1, 0)
+  if testPass(outcome, 0, 0, 1, 0, [Die.new(1,4,2), Die.new(3,2,3), Die.new(4,1,3)])
     puts "TestE : pass"
   else
     puts "TestE : fail"
@@ -91,7 +92,7 @@ puts array1 -array2
   yellow = [Die.new(4,1,3)]
   pool = Attack_dice_pool.new(red, orange, yellow, initializeTiers)
   outcome = optimal_die_usage(pool, shipDefense)
-  if testPass(outcome, 0, 0, 2, 1)
+  if testPass(outcome, 0, 0, 2, 1, [Die.new(1,4,2), Die.new(5,4,5)])
     puts "TestF : pass"
   else
     puts "TestF : fail"
@@ -104,7 +105,7 @@ puts array1 -array2
   yellow = [Die.new(4,1,3)]
   pool = Attack_dice_pool.new(red, orange, yellow, initializeTiers)
   outcome = optimal_die_usage(pool, shipDefense)
-  if testPass(outcome, 0, 0, 0, 1)
+  if testPass(outcome, 0, 0, 0, 1, [Die.new(1,4,2), Die.new(2,2,6), Die.new(3,2,3)])
     puts "TestG : pass"
   else
     puts "TestG : fail"
@@ -117,7 +118,7 @@ puts array1 -array2
   yellow = [Die.new(4,1,3)]
   pool = Attack_dice_pool.new(red, orange, yellow, initializeTiers)
   outcome = optimal_die_usage(pool, shipDefense)
-  if testPass(outcome, 1, 0, 0, 0)
+  if testPass(outcome, 1, 0, 0, 0, [Die.new(1,4,2), Die.new(2,2,6), Die.new(3,2,3), Die.new(4,1,3)])
     puts "TestH : pass"
   else
     puts "TestH : fail"
@@ -126,7 +127,8 @@ puts array1 -array2
   
 end
 
-def testPass(outcome, shipD, red, orange, yellow)
+def testPass(outcome, shipD, red, orange, yellow, used_dice)
+
   if outcome[1] != shipD
     return false
   elsif outcome[0].red.length != red
@@ -135,6 +137,11 @@ def testPass(outcome, shipD, red, orange, yellow)
     return false
   elsif outcome[0].yellow.length != yellow
     return false
+  end
+  used_dice.each do |die|
+    if !outcome[0].used_dice.delete_if{|e| e.id == die.id}
+      return false
+    end
   end
   return true
 end
