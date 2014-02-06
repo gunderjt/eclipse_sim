@@ -1,3 +1,6 @@
+require_relative 'parts.rb'
+require_relative 'optimal_usage.rb'
+
 def test()
 =begin
 dieA = Die.new(1,2,3)
@@ -16,12 +19,12 @@ puts array1 -array2
 /* 4,4,2,2,1 : 8 == 4,4 */
 /* 4,2,2,1 : 8 == 4,2,2 */
 =end
-  initializeTiers = 3
+  initializeTiers = 2
   'TestA: [4,2,1] : 3 == 2,1'
   red = [Die.new(1,4,2)]
   orange = [Die.new(2,2,6)] 
   yellow = [Die.new(3,1,3)]
-  poolA = Dice_pool.new(red, orange, yellow, initializeTiers)
+  poolA = Attack_dice_pool.new(red, orange, yellow, initializeTiers)
   outcomeA = optimal_die_usage(poolA, 3)
   if testPass(outcomeA, 0, 1, 0, 0)
     puts "TestA : pass"
@@ -34,7 +37,7 @@ puts array1 -array2
   red = [Die.new(1,4,2)]
   orange = [Die.new(2,2,6), Die.new(3,2,3)] 
   yellow = []
-  poolB = Dice_pool.new(red, orange, yellow, initializeTiers)
+  poolB = Attack_dice_pool.new(red, orange, yellow, initializeTiers)
   outcomeB = optimal_die_usage(poolB, 4)
   if testPass(outcomeB, 0, 0, 2, 0)
     puts "TestB : pass"
@@ -47,7 +50,7 @@ puts array1 -array2
   red = [Die.new(1,4,2)]
   orange = [Die.new(2,2,6), Die.new(3,2,3)] 
   yellow = [Die.new(4,1,3)]
-  pool = Dice_pool.new(red, orange, yellow, initializeTiers)
+  pool = Attack_dice_pool.new(red, orange, yellow, initializeTiers)
   outcome = optimal_die_usage(pool, shipDefense)
   if testPass(outcome, 0, 0, 2, 1)
     puts "TestC : pass"
@@ -60,7 +63,7 @@ puts array1 -array2
   red = [Die.new(1,4,2)]
   orange = [Die.new(2,2,6), Die.new(3,2,3)] 
   yellow = [Die.new(4,1,3)]
-  pool = Dice_pool.new(red, orange, yellow, initializeTiers)
+  pool = Attack_dice_pool.new(red, orange, yellow, initializeTiers)
   outcome = optimal_die_usage(pool, shipDefense)
   if testPass(outcome, 0, 0, 1, 1)
     puts "TestD : pass"
@@ -73,7 +76,7 @@ puts array1 -array2
   red = [Die.new(1,4,2)]
   orange = [Die.new(2,2,6), Die.new(3,2,3)] 
   yellow = [Die.new(4,1,3)]
-  pool = Dice_pool.new(red, orange, yellow, initializeTiers)
+  pool = Attack_dice_pool.new(red, orange, yellow, initializeTiers)
   outcome = optimal_die_usage(pool, shipDefense)
   if testPass(outcome, 0, 0, 1, 0)
     puts "TestE : pass"
@@ -86,7 +89,7 @@ puts array1 -array2
   red = [Die.new(1,4,2), Die.new(5,4,5)]
   orange = [Die.new(2,2,6), Die.new(3,2,3)] 
   yellow = [Die.new(4,1,3)]
-  pool = Dice_pool.new(red, orange, yellow, initializeTiers)
+  pool = Attack_dice_pool.new(red, orange, yellow, initializeTiers)
   outcome = optimal_die_usage(pool, shipDefense)
   if testPass(outcome, 0, 0, 2, 1)
     puts "TestF : pass"
@@ -99,7 +102,7 @@ puts array1 -array2
   red = [Die.new(1,4,2)]
   orange = [Die.new(2,2,6), Die.new(3,2,3)] 
   yellow = [Die.new(4,1,3)]
-  pool = Dice_pool.new(red, orange, yellow, initializeTiers)
+  pool = Attack_dice_pool.new(red, orange, yellow, initializeTiers)
   outcome = optimal_die_usage(pool, shipDefense)
   if testPass(outcome, 0, 0, 0, 1)
     puts "TestG : pass"
@@ -112,7 +115,7 @@ puts array1 -array2
   red = [Die.new(1,4,2)]
   orange = [Die.new(2,2,6), Die.new(3,2,3)] 
   yellow = [Die.new(4,1,3)]
-  pool = Dice_pool.new(red, orange, yellow, initializeTiers)
+  pool = Attack_dice_pool.new(red, orange, yellow, initializeTiers)
   outcome = optimal_die_usage(pool, shipDefense)
   if testPass(outcome, 1, 0, 0, 0)
     puts "TestH : pass"
@@ -137,6 +140,7 @@ def testPass(outcome, shipD, red, orange, yellow)
 end
 test()
 
+'''
 die = Die.new("red")
 diea = Die.new("orange")
 dieb = Die.new("yellow")
@@ -146,3 +150,4 @@ p die.id
 p diea.id
 p dieb.id
 p diec.id
+'''
