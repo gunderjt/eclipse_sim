@@ -68,6 +68,9 @@ class Dice_pool
   def create_attack_clone()
     Attack_dice_pool.new(@red, @orange, @yellow, @current_tier)
   end
+  def empty?
+    (@red + @orange + @yellow) == 0
+  end
 end
 
 class Attack_dice_pool < Dice_pool
