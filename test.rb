@@ -1,5 +1,7 @@
 require_relative 'parts.rb'
 require_relative 'optimal_usage.rb'
+require_relative 'battle.rb'
+require_relative 'ship.rb'
 require 'ruby-debug'
 
 def test()
@@ -145,8 +147,7 @@ def testPass(outcome, shipD, red, orange, yellow, used_dice)
   end
   return true
 end
-test()
-
+'''test()'''
 '''
 die = Die.new("red")
 diea = Die.new("orange")
@@ -158,3 +159,123 @@ p diea.id
 p dieb.id
 p diec.id
 '''
+def createBattle()
+  att_fleet = Fleet.new("att")
+
+  parts = Array.new
+  parts.push(Gluon.new)
+  parts.push(Gauss.new)
+  parts.push(Morph.new)
+  parts.push(Tachyon.new)
+  parts.push(Ion_turret.new)
+  parts.push(Sentient.new)
+
+  ship = Starbase.new(parts, {:computer => 4, :quantity => 2, :side => 'att'})
+  att_fleet.add_ship(ship)
+
+  parts.clear()
+  parts.push(Electron.new)
+  parts.push(Improved.new)
+  parts.push(Improved.new)
+  parts.push(Nuclear.new)
+  parts.push(Flux.new)
+  parts.push(Antimatter.new)
+  ship = Cruiser.new(parts, {:shield => -1, :quantity => 3, :side => 'att'})
+  att_fleet.add_ship(ship)
+  
+  def_fleet = Fleet.new("def")
+  parts.clear()
+  parts.push(Positron.new)
+  parts.push(Sentient.new)
+  parts.push(Conformal.new)
+  parts.push(Zero_point.new)
+  parts.push(Ion.new)
+  parts.push(Ion.new)
+  ship = Interceptor.new(parts, {:yellow_cannon => 2, :initiative => 3, :hit_recovery => 1, :side => 'def'})
+  def_fleet.add_ship(ship)
+
+  parts.clear()
+  parts.push(Parts.new)
+  ship = Dreadnought.new(parts, {:yellow_cannon => 2, :initiative => 1, :computer => 1, :side => 'def'})
+  def_fleet.add_ship(ship)
+  att_fleet.sort_fleet
+  def_fleet.sort_fleet
+
+  battle = Battle.new(att_fleet, def_fleet)
+
+end
+def shipTest()
+  battle = createBattle()
+  battle.att_fleet.ships.each do |ship|
+    p ship.computer
+  end
+  battle.def_fleet.ships.each do |ship|
+    p ship.computer
+  end
+end
+#shipTest()
+
+def testBattle
+  battle = createBattle()
+
+  while !(win = battle.winner?)
+    battle.one_round()
+  end
+  p win.side
+end
+#testBattle()
+
+def testInitiative()
+  battle = createBattle()
+  arr = battle.build_initiative_array
+  debugger
+  arr.each do |ship|
+    p ship.initiative
+  end
+
+end
+#testInitiative()
+
+def createBattle2()
+#'fair battle'
+  att_fleet = Fleet.new("att")
+
+  parts = Array.new
+  parts.push(Gluon.new)
+  parts.push(Gauss.new)
+  parts.push(Morph.new)
+  parts.push(Tachyon.new)
+  parts.push(Ion_turret.new)
+  parts.push(Sentient.new)
+
+  ship = Starbase.new(parts, {:quantity => 2, :side => 'att'})
+  att_fleet.add_ship(ship)
+
+  def_fleet = Fleet.new("def")
+  
+  parts = Array.new
+  parts.push(Gluon.new)
+  parts.push(Gauss.new)
+  parts.push(Morph.new)
+  parts.push(Tachyon.new)
+  parts.push(Ion_turret.new)
+  parts.push(Sentient.new)
+
+  ship = Starbase.new(parts, {:quantity => 2, :side => 'def'})
+  def_fleet.add_ship(ship)
+
+  att_fleet.sort_fleet
+  def_fleet.sort_fleet
+
+  battle = Battle.new(att_fleet, def_fleet)
+
+end
+
+def fairBattle()
+  battle = createBattle2()
+    while !(win = battle.winner?)
+    battle.one_round()
+  end
+  p win.side
+end
+fairBattle()

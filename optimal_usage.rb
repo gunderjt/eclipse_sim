@@ -2,18 +2,19 @@ require 'ruby-debug'
 class Die
   attr_accessor :id, :damage, :value
   @@master_id = 0
-  '''
+
   def initialize(color)
     @id = @@master_id = @@master_id + 1
     assign_damage(color)
     roll
   end
-'''
+  '''
   def initialize(id, damage, value)
     @id = id
     @damage = damage
     @value = value
-  end  
+  end
+'''  
   def assign_damage(color)
     case color
     when 'red'
@@ -26,6 +27,8 @@ class Die
   end
   def roll
     @value = rand(1..6)
+    @value = 1.0/0.0 if @value == 6
+    @value = -1.0/0.0 if @value == 1
   end
   def add_computer(comp)
     @value += comp
@@ -69,7 +72,21 @@ class Dice_pool
     Attack_dice_pool.new(@red, @orange, @yellow, @current_tier)
   end
   def empty?
-    (@red + @orange + @yellow) == 0
+    (@red.length + @orange.length + @yellow.length) == 0
+  end
+  def value_array
+    colors = ['red', 'orange', 'yellow']
+    val_arr = []
+    colors.each do |color|
+      arr = self.instance_variable_get("@#{color}")
+      arr.each do |die|
+        val_arr.push(die.value)
+      end
+    end
+    return val_arr
+  end
+  def clear_die
+    @red.clear(); @orange.clear(); @yellow.clear()
   end
 end
 
@@ -87,7 +104,7 @@ class Attack_dice_pool < Dice_pool
     colors.each do |color|
       dice = self.instance_variable_get("@#{color}")
       dice.each do |die|
-        dice.delete(die) if (die.value - enemy_shield) < 6
+        self.remove_dice([die]) if (die.value + enemy_shield) < 6
       end
     end
   end
@@ -125,12 +142,6 @@ dice total
 The optimal choice is the outcome whose remaining dice have the greatest
 remaining attack, and in the event of a tie, the outcome who has the greatest
 remaining die count.
-
-SOME REFACTORING:
-Try to find a way to store the reference to a dice to view it, and then 
-remove it if it is what we want.
-  /*Organize the dice by their attack value */
-  /*valid_remaining_dice.sort_by(&:damage).reverse*/
 =end
 
   if ship_hull <= 0
