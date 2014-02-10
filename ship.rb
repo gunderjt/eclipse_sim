@@ -22,6 +22,7 @@ class Ship
         end
       end
     end
+
     racial_abilities(options[:race])
     @quantity = options[:quantity] || 1
     @max_hull = @hull += 1
@@ -36,8 +37,11 @@ class Ship
     end
     @quantity <= 0
   end
-  def missle?
-    (@yellow_missle + @orange_missle) > 0
+  def missles?
+    (@yellow_missle.length + @orange_missle.length) > 0
+  end
+  def cannons_damage
+    @yellow_cannon + @orange_cannon*2 + @red_cannon*4
   end
   def produce_attack(type = 'cannon')
     attack = ['red','orange','yellow']
@@ -47,7 +51,7 @@ class Ship
       if i = self.instance_variable_get("@#{color}_#{type}")
         i*=@quantity
         while i > 0
-          new_die = Die.new(color)
+          new_die = Die.new(options = {:color => color})
           new_die.add_computer(@computer)
           if(new_die.value >= 6)
             die_pool.add_die(new_die)
@@ -59,7 +63,6 @@ class Ship
     return die_pool
   end
   def produce_value
-    
     #smallest hull, greater computer, greater attack_power, shield
     value = ((@yellow_cannon + @red_cannon*4 + @orange_cannon*2) +
              (@computer*2 - @shield) + @initiative)

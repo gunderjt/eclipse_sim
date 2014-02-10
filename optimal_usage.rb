@@ -3,18 +3,16 @@ class Die
   attr_accessor :id, :damage, :value
   @@master_id = 0
 
-  def initialize(color)
+  def initialize(options = {})
     @id = @@master_id = @@master_id + 1
-    assign_damage(color)
-    roll
+    if options[:color]
+      assign_damage(options[:color])
+      roll
+    else
+      @damage = options[:damage]
+      @value = options[:value]
+    end
   end
-  '''
-  def initialize(id, damage, value)
-    @id = id
-    @damage = damage
-    @value = value
-  end
-'''  
   def assign_damage(color)
     case color
     when 'red'
@@ -53,6 +51,22 @@ class Dice_pool
       @yellow.push(die).sort_by(&:value).reverse
     end
   end
+  def remove_die_by_num(num)
+    #this is called during point defense; 
+    #remove the number of active die, strongest first
+    for i in 1..num
+      if !@red.empty?
+        @red.pop()
+      elsif !@orange.empty?
+        @orange.pop()
+      else
+        @yellow.pop()
+      end
+    end
+  end
+  def number_of_dice
+    @red.length + @orange.length + @yellow.length
+  end
   def remove_dice(used_dice)
     used_dice.each do |die|
       case die.damage
@@ -88,6 +102,23 @@ class Dice_pool
   def clear_die
     @red.clear(); @orange.clear(); @yellow.clear()
   end
+  def split_antimatter
+    remove_red = []
+    @red.each do |die|
+      for i in 1..4
+        @yellow.push(Die.new(options = {:value => die.value, :damage => 1}))
+      end
+      remove_red.push(die)
+    end
+    self.remove_dice(remove_red)
+  end
+  def pool_dice(new_dice_pool)
+    #specifically while attacking with missles, all the attacks are pooled into
+    #one attack die pool
+    new_dice_pool.red.each {|new_die| @red.push(new_die)}
+    new_dice_pool.orange.each {|new_die| @orange.push(new_die)}
+    new_dice_pool.yellow.each {|new_die| @yellow.push(new_die)}
+  end
 end
 
 class Attack_dice_pool < Dice_pool
@@ -120,9 +151,6 @@ class Attack_dice_pool < Dice_pool
   end
   def damage_remaining
     4*@red.length + 2*@orange.length + @yellow.length
-  end
-  def number_of_dice
-    @red.length + @orange.length + @yellow.length
   end
   def reduce_tier
     @current_tier = @current_tier - 1
