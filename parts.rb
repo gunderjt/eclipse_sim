@@ -15,6 +15,7 @@ class Parts
     '''missles'''
     @yellow_missle ||=0
     @orange_missle ||=0
+    @red_missle ||=0
     '''Cannon'''
     @yellow_cannon ||=0
     @orange_cannon ||=0

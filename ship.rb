@@ -4,7 +4,7 @@ require 'ruby-debug'
 
 class Ship
   require_relative 'optimal_usage.rb'
-  attr_accessor :computer, :initiative, :shield, :hull, :hit_recovery, :drive, :power, :yellow_missle, :orange_missle, :yellow_cannon, :orange_cannon, :red_cannon, :power_consumption, :note, :quantity, :id, :side, :value, :max_hull
+  attr_accessor :computer, :initiative, :shield, :hull, :hit_recovery, :drive, :power, :red_missle, :yellow_missle, :orange_missle, :yellow_cannon, :orange_cannon, :red_cannon, :power_consumption, :note, :quantity, :id, :side, :value, :max_hull
   @@master_id = 0
   def initialize(parts, options = {})
     @id = @@master_id = @@master_id + 1
@@ -38,7 +38,7 @@ class Ship
     @quantity <= 0
   end
   def missles?
-    (@yellow_missle.length + @orange_missle.length) > 0
+    (@red_missle.length + @yellow_missle.length + @orange_missle.length) > 0
   end
   def cannons_damage
     @yellow_cannon + @orange_cannon*2 + @red_cannon*4
