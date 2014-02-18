@@ -1,19 +1,97 @@
 <html>
-	<head>
-		<style>
-  		.part{ width: 90px; height: 90px; padding: 0.5em; float: left; margin: 0 10px 10px 0; border:2px solid #ccc; }
-  		.ship_container{ width: 150px; height: 150px; padding: 0.5em; padding: 0.5em; float: left; margin: 0 10px 10px 0; border:2px solid #ccc; }
-  		</style>
+	<head>		
+  		<link rel="stylesheet" type="text/css" href="main.css">  		
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
   		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   		<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-  		<script src="dragdrop.js"></script>
+  		<script src="javascript/dragdrop.js"></script>
+  		<script src="javascript/ships.js"></script>
 	</head>
 	<body>
-		<div class="part">what</div>
-		<div class="part">the</div>
-		<div class="part">deuce</div>
-		<div class="ship_container">Ship Container</div>
-		<button class="button" value="press me">Press Me</button>
+		<div id='att' class="ships">
+			<select>
+			  <option value="Default" selected="selected">Default</option>
+			  <option value="Planta">Planta</option>
+			  <option value="Exiles">Exiles</option>
+			  <option value="Rho">Rho Indi</option>
+			  <option value="Orion">Orion</option>
+			</select>
+			<div id="att_i" class="ship-pos int">
+				<div id="ai1" class="ship_container i1"></div>
+				<div id="ai2" class="ship_container i2"></div>
+				<div id="ai3" class="ship_container i3"></div>
+				<div id="ai4" class="ship_container i4"></div>
+			</div>
+			<div id="att_c" class="ship-pos cru">
+				<div id="ac1" class="ship_container c1"></div>
+				<div id="ac2" class="ship_container c2"></div>
+				<div id="ac3" class="ship_container c3"></div>
+				<div id="ac4" class="ship_container c4"></div>
+				<div id="ac5" class="ship_container c5"></div>
+				<div id="ac6" class="ship_container c6"></div>
+			</div>
+			<div id="att_d" class="ship-pos dre">
+				<div id="ad1" class="ship_container d1"></div>
+				<div id="ad2" class="ship_container d2"></div>
+				<div id="ad3" class="ship_container d3"></div>
+				<div id="ad4" class="ship_container d4"></div>
+				<div id="ad5" class="ship_container d5"></div>
+				<div id="ad6" class="ship_container d6"></div>
+				<div id="ad7" class="ship_container d7"></div>
+				<div id="ad8" class="ship_container d8"></div>
+			</div>
+			<div id="att_s" class="ship-pos star">
+				<div id="as1" class="ship_container s1"></div>
+				<div id="as2" class="ship_container s2"></div>
+				<div id="as3" class="ship_container s3"></div>
+				<div id="as4" class="ship_container s4"></div>
+				<div id="as5" class="ship_container s5"></div>
+			</div>
+		</div>
+		<div id="parts_pool">
+		<div id="drag1" class="part">what</div>
+		<div id="drag2" class="part">the</div>
+		<div id="drag3" class="part">deuce</div>
+		</div>
+		<div id='def' class="ships">
+			<select>
+			  <option value="Default" selected="selected">Default</option>
+			  <option value="Planta">Planta</option>
+			  <option value="Exiles">Exiles</option>
+			  <option value="Rho">Rho Indi</option>
+			  <option value="Orion">Orion</option>
+			</select>
+			<div id="def_i" class="ship-pos int">
+				<div id="di1" class="ship_container i1"></div>
+				<div id="di2" class="ship_container i2"></div>
+				<div id="di3" class="ship_container i3"></div>
+				<div id="di4" class="ship_container i4"></div>
+			</div>
+			<div id="def_c" class="ship-pos cru">
+				<div id="dc1" class="ship_container c1"></div>
+				<div id="dc2" class="ship_container c2"></div>
+				<div id="dc3" class="ship_container c3"></div>
+				<div id="dc4" class="ship_container c4"></div>
+				<div id="dc5" class="ship_container c5"></div>
+				<div id="dc6" class="ship_container c6"></div>
+			</div>
+			<div id="def_d" class="ship-pos dre">
+				<div id="dd1" class="ship_container d1"></div>
+				<div id="dd2" class="ship_container d2"></div>
+				<div id="dd3" class="ship_container d3"></div>
+				<div id="dd4" class="ship_container d4"></div>
+				<div id="dd5" class="ship_container d5"></div>
+				<div id="dd6" class="ship_container d6"></div>
+				<div id="dd7" class="ship_container d7"></div>
+				<div id="dd8" class="ship_container d8"></div>
+			</div>
+			<div id="def_s" class="ship-pos star">
+				<div id="ds1" class="ship_container s1"></div>
+				<div id="ds2" class="ship_container s2"></div>
+				<div id="ds3" class="ship_container s3"></div>
+				<div id="ds4" class="ship_container s4"></div>
+				<div id="ds5" class="ship_container s5"></div>
+			</div>
+		</div>
 	</body>
 </html>
