@@ -15,40 +15,36 @@ body{height:100%;}
 	margin: 0 10px 10px 0; 
 	border:2px solid #ccc; 
 }
-.ship_container{ 
-	width: 60px; 
-	height: 60px;  
+.ship_container{
+	width: 22.5%;
+}
+.ship-pos{
+	margin: 0 auto;
+	height:39%;
+	width:200px;
+	position:absolute;
+}
+.part_container{ 
+	width: 55px; 
+	height: 55px;  
 	border:2px solid #ccc;
 	position: absolute; 
 }
 .ships{
 	height:40%;
 	position: relative;
-	
 }
 .int{
-	height:39%;
-	width:200px;
-	left:150px;
-	position:absolute;
+	left: 10%;
 }
 .cru{
-	height:39%;
-	width:200px;
-	left:400px;
-	position:absolute;
+	left: 32.5%;
 }
 .dre{
-	height:39%;
-	width:200px;
-	left:600px;
-	position:absolute;
+	left: 55%;
 }
 .star{
-	height:39%;
-	width:200px;
-	left:800px;
-	position:absolute;
+	left: 77.5%;
 }
 .i1 {
 	top:50px;
@@ -141,4 +137,25 @@ body{height:100%;}
 .s5{
 	top:65px;
 	left:130px;	
+}
+#electron_computer, .electron_computer{
+	background:url('images/PartsSprite2.png') -2px -2px;
+}
+#positron_computer, .positron_computer{
+	background:url('images/PartsSprite2.png') -2px -60px;
+}
+#gluon_computer, .gluon_computer{
+	background:url('images/PartsSprite2.png') -2px -118px;
+}
+#sentient_computer, .sentient_computer{
+	background:url('images/PartsSprite2.png') -2px -176px;
+}
+#plasma_missle, .plasma_missle{
+	background:url('images/PartsSprite2.png') -60px -2px;
+}
+#flux_missle, .flux_missle{
+	background:url('images/PartsSprite2.png') -60px -60px;
+}
+#hyperion_source, .hyperion_source{
+	background:url('images/PartsSprite2.png') -60px -118px;
 }
