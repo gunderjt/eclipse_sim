@@ -18,6 +18,7 @@ $(document).ready(function() {
     $(".part_container").droppable({
       drop: function( event, ui ) {
       	//In here I will add the part
+      	$(this).removeClass($(this).data("part"));
         $( this )
           .addClass(ui.draggable.attr('id')).data("part", ui.draggable.attr('id'));           	
       },
