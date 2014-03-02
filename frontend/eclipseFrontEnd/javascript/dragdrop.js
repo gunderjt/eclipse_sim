@@ -17,16 +17,16 @@ $(document).ready(function() {
     });
     $(".part_container").droppable({
       drop: function( event, ui ) {
-      	//In here I will add the part
-      	$(this).removeClass($(this).data("part"));
-        $( this )
-          .addClass(ui.draggable.attr('id')).data("part", ui.draggable.attr('id'));           	
+      	//In here I will add the part      	
+      	add_part(ui.draggable.attr('id'), $(this));
       },
     }); 	
     $(".button").on('click', function() {alert("The value is: " + $(".ship_container").data("part"));});
-   	function snapToMiddle(dragger, target){
-	    var topMove = target.position().top - dragger.data('position').top + (target.outerHeight(true) - dragger.outerHeight(true)) / 2;
-	    var leftMove= target.position().left - dragger.data('position').left + (target.outerWidth(true) - dragger.outerWidth(true)) / 2;
-	    dragger.animate({top:topMove,left:leftMove},{duration:600,easing:'easeOutBack'});
-	}     	
+ 	//$( "#parts_pool" ).accordion();
+ 	$( ".races" ).menu({ menus: "div.s"}); 	
 });
+function snapToMiddle(dragger, target){
+    var topMove = target.position().top - dragger.data('position').top + (target.outerHeight(true) - dragger.outerHeight(true)) / 2;
+    var leftMove= target.position().left - dragger.data('position').left + (target.outerWidth(true) - dragger.outerWidth(true)) / 2;
+    dragger.animate({top:topMove,left:leftMove},{duration:600,easing:'easeOutBack'});
+}

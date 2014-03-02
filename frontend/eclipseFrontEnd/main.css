@@ -1,3 +1,65 @@
+
+.alienCruiser1{
+	background:url('images/alienShips_small.png') -75px -1px;
+}
+.alienCruiser2{
+	background:url('images/alienShips_small.png') -150px 0px;
+}
+.alienCruiser3{
+	background:url('images/alienShips_small.png') -225px 0px;
+}
+.alienCruiser4{
+	background:url('images/alienShips_small.png') 0px -75px;
+}
+.alienCruiser5{
+	background:url('images/alienShips_small.png') -75px -75px;
+}
+.alienCruiser6{
+	background:url('images/alienShips_small.png') -150px -75px;
+}
+.alienCruiser7{
+	background:url('images/alienShips_small.png') -225px -75px;
+}
+.alienCruiser8{
+	background:url('images/alienShips_small.png') 0px -148px;
+}
+.alienGC1{
+	background:url('images/alienShips_small.png') -75px -148px;
+}
+.alienGC2{
+	background:url('images/alienShips_small.png') -150px -148px;
+}
+.alienGC3{
+	background:url('images/alienShips_small.png') -225px -148px;
+}
+.alienGC4{
+	background:url('images/alienShips_small.png') 0px -225px;
+}
+.alienGC5{
+	background:url('images/alienShips_small.png') -75px -225px;
+}
+.races{float:left;}
+.ui-menu {
+	/*width: 150px;*/
+	z-index: 1;
+}
+.alien_container{
+	width: 75px;
+	height: 75px;
+	display:inline-block;	
+}
+.alienC{
+	position:absolute;
+	top:0px;
+	left:0px;
+}
+.container{
+	width:350px;
+}
+.container:after{
+	clear:both;
+}
+.hidden{display:none;}
 body{height:100%;}
 #parts_pool{  
 	width:100%;
@@ -34,16 +96,20 @@ body{height:100%;}
 	position: relative;
 }
 .int{
-	left: 10%;
+	top: 40px;
+	left: 15%;
 }
 .cru{
-	left: 32.5%;
+	top: 40px;
+	left: 37.5%;
 }
 .dre{
-	left: 55%;
+	top: 40px;
+	left: 60%;
 }
 .star{
-	left: 77.5%;
+	top: 40px;
+	left: 82.5%;
 }
 .i1 {
 	top:50px;
@@ -184,6 +250,9 @@ body{height:100%;}
 }
 #ion_disruptor, .ion_disruptor{
 	background:url('images/PartsSprite2.png') -176px -176px;
+}
+#nuclear_drive, .nuclear_drive{
+	background:url('images/PartsSprite2.png') -410px -58px;
 }
 #fusion_drive, .fusion_drive{
 	background:url('images/PartsSprite2.png') -236px -2px;

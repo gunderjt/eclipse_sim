@@ -4,18 +4,45 @@
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
   		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   		<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-  		<script src="javascript/dragdrop.js"></script>
   		<script src="javascript/ships.js"></script>
+  		<script src="javascript/dragdrop.js"></script>
+
 	</head>
 	<body>
-		<div id='att' class="ships">
-			<select>
-			  <option value="Default" selected="selected">Default</option>
-			  <option value="Planta">Planta</option>
-			  <option value="Exiles">Exiles</option>
-			  <option value="Rho">Rho Indi</option>
-			  <option value="Orion">Orion</option>
-			</select>
+		<div id='att' class="ships">			
+			<ul class="races">
+				<li><a href="#">Terran</a></li>
+				<li><a href="#">Planta</a></li>
+				<li><a href="#">Exiles</a></li>
+				<li><a href="#">Rho Indi</a></li>
+				<li><a href="#">Orion</a></li>
+				<li><a href="#">Alien Ships</a>
+					 <ul>
+						<li><a href="#">Standard</a></li>
+						<li><a href="#">Cruisers</a>
+							<ul>
+								<li><a href="#" class='alien_container alienCruiser1'></a></li>
+								<li><a href="#" class='alien_container alienCruiser2'></a></li>
+								<li><a href="#" class='alien_container alienCruiser3'></a></li>
+								<li><a href="#" class='alien_container alienCruiser4'></a></li>
+								<li><a href="#" class='alien_container alienCruiser5'></a></li>
+								<li><a href="#" class='alien_container alienCruiser6'></a></li>
+								<li><a href="#" class='alien_container alienCruiser7'></a></li>
+								<li><a href="#" class='alien_container alienCruiser8'></a></li>
+							</ul>
+						</li>
+						<li><a href="#">Galactic Center</a>
+							<ul>
+								<li><a href="#" class='alien_container alienGC1'></a></li>
+								<li><a href="#" class='alien_container alienGC2'></a></li>
+								<li><a href="#" class='alien_container alienGC3'></a></li>
+								<li><a href="#" class='alien_container alienGC4'></a></li>
+								<li><a href="#" class='alien_container alienGC5'></a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
 			<div class="ship_container">
 				<div id="att_i" class="ship-pos int">
 					<div id="ai1" class="part_container i1"></div>
@@ -57,10 +84,10 @@
 			</div>			
 		</div>
 		<div id="parts_pool">
-			<div id="electron_computer" class="part"></div>
+			<div id="electron_computer" class="part"></div>		
 			<div id="positron_computer" class="part"></div>
 			<div id="gluon_computer" class="part"></div>
-			<div id="sentient_computer" class="part"></div>
+			<div id="sentient_computer" class="part"></div>		
 			<div id="plasma_missle" class="part"></div>
 			<div id="flux_missle" class="part"></div>
 			<div id="hyperion_source" class="part"></div>
@@ -73,6 +100,7 @@
 			<div id="plasma_cannon" class="part"></div>
 			<div id="antimatter_cannon" class="part"></div>
 			<div id="ion_disruptor" class="part"></div>
+			<div id="nuclear_drive" class="part"></div>
 			<div id="fusion_drive" class="part"></div>
 			<div id="tachyon_drive" class="part"></div>
 			<div id="jump_drive" class="part"></div>
@@ -88,13 +116,39 @@
 			<div id="interceptor_bay" class="part"></div>
 		</div>
 		<div id='def' class="ships">
-			<select>
-			  <option value="Default" selected="selected">Default</option>
-			  <option value="Planta">Planta</option>
-			  <option value="Exiles">Exiles</option>
-			  <option value="Rho">Rho Indi</option>
-			  <option value="Orion">Orion</option>
-			</select>
+			<ul class="races">
+				<li><a href="#">Terran</a></li>
+				<li><a href="#">Planta</a></li>
+				<li><a href="#">Exiles</a></li>
+				<li><a href="#">Rho Indi</a></li>
+				<li><a href="#">Orion</a></li>
+				<li><a href="#">Alien Ships</a>
+					 <ul>
+						<li><a href="#">Standard</a></li>
+						<li><a href="#">Cruisers</a>
+							<ul>
+								<li><a href="#" class='alien_container alienCruiser1'></a></li>
+								<li><a href="#" class='alien_container alienCruiser2'></a></li>
+								<li><a href="#" class='alien_container alienCruiser3'></a></li>
+								<li><a href="#" class='alien_container alienCruiser4'></a></li>
+								<li><a href="#" class='alien_container alienCruiser5'></a></li>
+								<li><a href="#" class='alien_container alienCruiser6'></a></li>
+								<li><a href="#" class='alien_container alienCruiser7'></a></li>
+								<li><a href="#" class='alien_container alienCruiser8'></a></li>
+							</ul>
+						</li>
+						<li><a href="#">Galactic Center</a>
+							<ul>
+								<li><a href="#" class='alien_container alienGC1'></a></li>
+								<li><a href="#" class='alien_container alienGC2'></a></li>
+								<li><a href="#" class='alien_container alienGC3'></a></li>
+								<li><a href="#" class='alien_container alienGC4'></a></li>
+								<li><a href="#" class='alien_container alienGC5'></a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
 			<div class="ship_container">
 				<div id="def_i" class="ship-pos int">
 					<div id="di1" class="part_container i1"></div>
@@ -134,6 +188,6 @@
 					<div id="ds5" class="part_container s5"></div>
 				</div>
 			</div>
-		</div>
+		</div>		
 	</body>
 </html>
