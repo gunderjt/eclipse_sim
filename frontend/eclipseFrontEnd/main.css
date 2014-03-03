@@ -44,9 +44,9 @@
 	z-index: 1;
 }
 .alien_container{
-	width: 75px;
-	height: 75px;
-	display:inline-block;	
+	width: 60px;
+	height: 70px;
+	/*display:inline-block;*/	
 }
 .alienC{
 	position:absolute;
@@ -59,11 +59,14 @@
 .container:after{
 	clear:both;
 }
+
 .hidden{display:none;}
 body{height:100%;}
 #parts_pool{  
-	width:100%;
+	margin:0 auto;
+	width:800px;
 	text-align:center;
+	height: 125px;
 }
 #parts_pool:after{
 	clear: both;
