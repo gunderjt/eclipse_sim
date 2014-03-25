@@ -24,7 +24,18 @@ $(document).ready(function() {
     $(".button").on('click', function() {alert("The value is: " + $(".ship_container").data("part"));});
  	//$( "#parts_pool" ).accordion();
  	$( ".races" ).menu(); 
- 	$("#parts_pool").tabs();	
+ 	$("#parts_pool").tabs();
+ 	$( ".spinner" ).spinner({
+      spin: function( event, ui ) {
+        if ( ui.value > 8 ) {
+          $( this ).spinner( "value", 0 );
+          return false;
+        } else if ( ui.value < 0 ) {
+          $( this ).spinner( "value", 8 );
+          return false;
+        }
+      }
+    });
 });
 function snapToMiddle(dragger, target){
     var topMove = target.position().top - dragger.data('position').top + (target.outerHeight(true) - dragger.outerHeight(true)) / 2;

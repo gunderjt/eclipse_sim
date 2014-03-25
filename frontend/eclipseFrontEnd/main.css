@@ -53,6 +53,13 @@
 	top:0px;
 	left:0px;
 }
+.head_text{
+	font-family: 'Jacques Francois', serif;
+}
+#parts_id{
+	vertical-align:middle;
+	float:left;
+}
 .container{
 	width:350px;
 }
@@ -67,9 +74,13 @@ body{height:100%;}
 	width:800px;
 	text-align:center;
 	height: 125px;
+	display:inline-block;
 }
 #parts_pool:after{
 	clear: both;
+}
+#parts_container{
+	
 }
 .part{ 
 	z-index: 1;
