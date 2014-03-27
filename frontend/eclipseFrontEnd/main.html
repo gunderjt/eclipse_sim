@@ -6,6 +6,7 @@
   		<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
   		<script src="javascript/ships.js"></script>
   		<script src="javascript/dragdrop.js"></script>
+  		<script src="javascript/calculate.js"></script>
   		<link href='http://fonts.googleapis.com/css?family=Jacques+Francois' rel='stylesheet' type='text/css'>
 
 	</head>
@@ -45,8 +46,8 @@
 				</li>
 			</ul>
 			<div class="ship_container">
-				<div id="att_i" class="ship-pos int">
-					<input class="spinner" name="value" />
+				<input class="spinner" name="value" />
+				<div id="att_i" class="ship-pos int">					
 					<div id="ai1" class="part_container i1"></div>
 					<div id="ai2" class="part_container i2"></div>
 					<div id="ai3" class="part_container i3"></div>
@@ -141,6 +142,7 @@
 				<div id="jump_drive" class="part"></div>		
 			  </div>		 
 			</div>
+			<button id="calculate" type="button">Calculate</button>
 		</div>									
 		<div id='def' class="ships">
 			<ul class="races">

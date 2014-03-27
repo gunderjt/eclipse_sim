@@ -36,6 +36,10 @@ $(document).ready(function() {
         }
       }
     });
+    $("#calculate").on('click', function () {
+    	var ship = calculate("att_d");
+    	console.log(ship);
+    });
 });
 function snapToMiddle(dragger, target){
     var topMove = target.position().top - dragger.data('position').top + (target.outerHeight(true) - dragger.outerHeight(true)) / 2;
