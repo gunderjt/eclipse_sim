@@ -1,10 +1,10 @@
 function calculate(id_tag){
+	//Conformal Drive;  Muon Source;  Axion Computer
 	//create a ship object
 	ship = initialize_ship();
 	//get all the parts into an array
 	parts = $("#"+id_tag).children(".part_container").each(function(){
-	//for each part build the ship object
-	//for (i = 0; i < parts.length; i++){
+		//for each part build the ship object
 		var part_name = $(this).data("part");
 		switch(part_name) {
 			//cannons
@@ -20,7 +20,7 @@ function calculate(id_tag){
 				ship.red_cannon += 1;
 				ship.power_consumption +=4;
 				break;
-			case "ion_distruptor":
+			case "ion_disruptor":
 				ship.yellow_cannon += 1;
 				ship.initiative += 3;
 				break;
@@ -144,10 +144,10 @@ function calculate(id_tag){
 	return ship;
 }
 
-function initialize_ship(){
+function initialize_ship(race){
 	ship= new Object();
 	ship.computer = 0;
-	ship.inititiative = 0;
+	ship.initiative = 0;
 	ship.shield = 0;
 	ship.hull = 0;
 	ship.hit_recovery = 0;
@@ -162,4 +162,23 @@ function initialize_ship(){
 	ship.power_consumption = 0;
 	ship.note = null;
 	return ship;
+}
+
+function create_fleet(side){
+	
+	var fleet = new Object();
+	var ship_id = ["i", "c", "d", "s"];	
+	for(var j= 0; j < ship_id.length; j++){
+		fleet[ship_id[j]] = calculate(side+"_"+ship_id[j]);					
+		if (ship_id[j] == "i"){
+			fleet[ship_id[j]].initiative += 2;	
+		}
+		else if (ship_id[j] == "c"){
+			fleet[ship_id[j]].initiative += 1;	
+		}
+		else if (ship_id[j] == "s"){
+			fleet[ship_id[j]].initiative += 4;	
+		}
+	}
+	return fleet;
 }

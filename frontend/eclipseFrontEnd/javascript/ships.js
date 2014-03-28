@@ -68,15 +68,14 @@ function initialize_board(race, side){
 	add_part("electron_computer",$("#"+side + " .s5"));
 	
 	switch (race){
-		case 'Terran':
+		case 'Terran':			
 			break;
 		case 'Planta':
 			$("#"+side + " .i1").addClass("hidden");
 			$("#"+side + " .c2").addClass("hidden");
 			$("#"+side + " .s4").addClass("hidden");
-			
 			/*still need to add image modifications*/
-			$("#"+side).data('status', "modified");			
+			$("#"+side).data('status', "modified");		
 			break;
 		case "Exiles":
 			$("#"+side + " .s1").css("top", "130px");
@@ -98,39 +97,21 @@ function initialize_board(race, side){
 			/*still need to add image modifications*/
 			$("#"+side).data('status', "modified");
 			break;
-		default: //Orion
+		case "Orion":
 			add_part("gauss_shield",$("#"+side + " .i1"));
 			add_part("gauss_shield",$("#"+side + " .c2"));
 			add_part("gauss_shield",$("#"+side + " .d3"));
 			add_part("gauss_shield",$("#"+side + " .s4"));
 			/*still need to add image modifications*/
 			break;
+		default:
+			break;
 	}
+	$("#"+side).data('race', race);
 }
 
 function calculate_ship(ship_div){
 	
-}
-
-
-
-function initialize_ship(ship){
-	ship.computer = 0;
-	ship.initiative = 0;
-	ship.shield = 0;
-	ship.hull = 0;
-	ship.hit_recovery = 0;
-	ship.drive = 0;
-	ship.power = 0;
-	ship.yellow_missle = 0;
-	ship.orange_missle = 0;
-	ship.red_missle = 0;
-	ship.yellow_cannon = 0;
-	ship.orange_cannon = 0;
-	ship.red_cannon = 0;
-	ship.power_consumption = 0;
-	ship.note = "None";
-	return ship;
 }
 
 function remove_part(element){

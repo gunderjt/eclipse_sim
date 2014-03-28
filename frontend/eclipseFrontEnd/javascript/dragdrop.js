@@ -10,7 +10,8 @@ $(document).ready(function() {
 	$( ".part" ).draggable(
 		{
 		helper: "clone",
-		cursor: "move", 
+		opacity: 0.3,
+		cursor: "move",		
 		cursorAt: { top: 56, left: 56 },
 		distance: 20,
 		
@@ -37,8 +38,57 @@ $(document).ready(function() {
       }
     });
     $("#calculate").on('click', function () {
-    	var ship = calculate("att_d");
-    	console.log(ship);
+    	var battle = new Object();
+    	var side = ["att", "def"];
+    	var ship_id = ["i", "c", "d", "s"];
+    	for(var i = 0; i < side.length; i++){
+    		battle[side[i]] = create_fleet(side[i]);
+    		var race = $("#"+side[i]).data('race');    		
+    		switch(race){
+				case "Terran":
+					break;
+				case "Planta":
+					battle[side[i]].i.initiative += -2;
+					battle[side[i]].s.initiative += -2;
+					battle[side[i]].c.initiative += -1;
+					for (var j =0; j < ship_id.length; j++){						
+						battle[side[i]][ship_id[j]].computer += 1;
+						battle[side[i]][ship_id[j]].power += 1;
+					}
+					break;
+				case "Exiles":
+					battle[side[i]].s.initialize += -4;
+					battle[side[i]].s.hull += 1;
+					battle[side[i]].s.power += 1;
+					break;
+				case "Rho Indi":
+					for (var j =0; j < ship_id.length; j++){						
+						battle[side[i]][ship_id[j]].shield += -1;
+						battle[side[i]][ship_id[j]].initiative += 1;						
+					}
+					break;
+				case "Orion":
+					for (var j =0; j < ship_id.length; j++){						
+						battle[side[i]][ship_id[j]].initiative += 1;
+						if (ship_id[j] == "i"){
+							battle[side[i]][ship_id[j]].power += 1;	
+						}
+						else if (ship_id[j] == "c"){
+							battle[side[i]][ship_id[j]].power += 2;	
+						}
+						else if (ship_id[j] == "d"){
+							battle[side[i]][ship_id[j]].power += 3;	
+						}
+					}
+					break;
+				case "Eridani":
+					battle[side[i]].d.power += 1;
+					break;
+				case "Standard":
+					break;
+		    }
+		}
+    	console.log(battle);
     });
 });
 function snapToMiddle(dragger, target){
