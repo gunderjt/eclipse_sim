@@ -2,6 +2,7 @@ function calculate(id_tag){
 	//Conformal Drive;  Muon Source;  Axion Computer
 	//create a ship object
 	ship = initialize_ship();
+	ship.quanity = $("#"+id_tag+"_s").spinner("value");
 	//get all the parts into an array
 	parts = $("#"+id_tag).children(".part_container").each(function(){
 		//for each part build the ship object
@@ -165,7 +166,6 @@ function initialize_ship(race){
 }
 
 function create_fleet(side){
-	
 	var fleet = new Object();
 	var ship_id = ["i", "c", "d", "s"];	
 	for(var j= 0; j < ship_id.length; j++){

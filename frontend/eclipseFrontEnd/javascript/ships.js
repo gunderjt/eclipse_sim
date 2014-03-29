@@ -35,8 +35,8 @@ function initialize_board(race, side){
 	if($("#"+side).data('status') == 'modified'){
 		$("#"+side + " .part_container").removeClass("hidden");
 		/*TO DO: remove image modificatons*/
-		$("#"+side + " .s1").css("top", "65px");
-		$("#"+side + " .s5").css("top", "65px");
+		$("#"+side + " .s1").css("top", "105px");
+		$("#"+side + " .s5").css("top", "105px");
 		$("#"+side).data('status', "");
 	}
 	//set interceptor
@@ -78,8 +78,8 @@ function initialize_board(race, side){
 			$("#"+side).data('status', "modified");		
 			break;
 		case "Exiles":
-			$("#"+side + " .s1").css("top", "130px");
-			$("#"+side + " .s5").css("top", "130px");
+			$("#"+side + " .s1").css("top", "170px");
+			$("#"+side + " .s5").css("top", "170px");
 			//$("#"+side + " .s5").css("top", "130px");
 			$("#"+side + " .s3").addClass("hidden");
 			$("#"+side + " .s4").addClass("hidden");

@@ -1,4 +1,7 @@
-
+.quan{
+	top:-10px;
+	width:50px;
+}
 .alienCruiser1{
 	background:url('images/alienShips_small.png') -75px -1px;
 }
@@ -126,95 +129,95 @@ body{height:100%;}
 	left: 82.5%;
 }
 .i1 {
-	top:50px;
+	top:90px;
 	left:0px;
 }
 .i2 {
-	top:0px;
+	top:40px;
 	left:65px;
 }
 .i3 {
-	top:65px;
+	top:105px;
 	left:65px;
 }
 .i4 {
-	top:50px;
+	top:90px;
 	left:130px;
 }
 .c1{
-	top:30px;
+	top:70px;
 	left:0px;
 }
 .c2{
-	top:95px;
+	top:135px;
 	left:0px;
 }
 .c3{
-	top:0px;
+	top:40px;
 	left:65px;
 }
 .c4{
-	top:65px;
+	top:105px;
 	left:65px;
 }
 .c5{
-	top:30px;
+	top:70px;
 	left:130px;
 }
 .c6{
-	top:95px;
+	top:135px;
 	left:130px;
 }
 .d1{
-	top:0px;
+	top:40px;
 	left:0px;
 }
 .d2{
-	top:65px;
+	top:105px;
 	left:0px;
 }
 .d3{
-	top:130px;
+	top:170px;
 	left:0px;
 }
 .d4{
-	top:30px;
+	top:70px;
 	left:65px;
 }
 .d5{
-	top:95px;
+	top:135px;
 	left:65px;
 }
 .d6{
-	top:0px;
+	top:40px;
 	left:130px;
 }
 .d7{
-	top:65px;
+	top:105px;
 	left:130px;
 }
 .d8{
-	top:130px;
+	top:170px;
 	left:130px;
 }
 .s1{
-	top:65px;
+	top:105px;
 	left:0px;	
 }
 .s2{
-	top:0px;
+	top:40px;
 	left:65px;	
 }
 .s3{
-	top:65px;
+	top:105px;
 	left:65px;	
 }
 .s4{
-	top:130px;
+	top:170px;
 	left:65px;	
 }
 .s5{
-	top:65px;
+	top:105px;
 	left:130px;	
 }
 #electron_computer, .electron_computer{
@@ -277,7 +280,7 @@ body{height:100%;}
 #jump_drive, .jump_drive{
 	background:url('images/PartsSprite2.png') -236px -118px;
 }
-#conformal_field, .conformal_field{
+#conformal_drive, .conformal_drive{
 	background:url('images/PartsSprite2.png') -236px -176px;
 }
 #nuclear_source, .nuclear_source{
@@ -306,4 +309,10 @@ body{height:100%;}
 }
 #interceptor_bay, .interceptor_bay{
 	background:url('images/PartsSprite2.png') -410px -2px;
+}
+#axion_computer, .axion_computer{
+	background:url('images/PartsSprite2.png') -410px -118px;
+}
+#muon, .muon{
+	background:url('images/PartsSprite2.png') -413px -237px;
 }

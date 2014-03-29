@@ -26,7 +26,7 @@ $(document).ready(function() {
  	//$( "#parts_pool" ).accordion();
  	$( ".races" ).menu(); 
  	$("#parts_pool").tabs();
- 	$( ".spinner" ).spinner({
+ 	$( ".spinner_i" ).spinner({
       spin: function( event, ui ) {
         if ( ui.value > 8 ) {
           $( this ).spinner( "value", 0 );
@@ -37,13 +37,47 @@ $(document).ready(function() {
         }
       }
     });
+    $( ".spinner_c" ).spinner({
+   		start: 0,
+	    spin: function( event, ui ) {
+	      if ( ui.value > 4 ) {
+	        $( this ).spinner( "value", 0 );
+	        return false;
+	      } else if ( ui.value < 0 ) {
+	        $( this ).spinner( "value", 4 );
+	        return false;
+	      }
+	    },      
+    });
+    $( ".spinner_d" ).spinner({
+      spin: function( event, ui ) {
+        if ( ui.value > 2 ) {
+          $( this ).spinner( "value", 0 );
+          return false;
+        } else if ( ui.value < 0 ) {
+          $( this ).spinner( "value", 2 );
+          return false;
+        }
+      }
+    });
+    $( ".spinner_s" ).spinner({
+      spin: function( event, ui ) {
+        if ( ui.value > 4 ) {
+          $( this ).spinner( "value", 0 );
+          return false;
+        } else if ( ui.value < 0 ) {
+          $( this ).spinner( "value", 4 );
+          return false;
+        }
+      }
+    });
     $("#calculate").on('click', function () {
     	var battle = new Object();
     	var side = ["att", "def"];
     	var ship_id = ["i", "c", "d", "s"];
     	for(var i = 0; i < side.length; i++){
     		battle[side[i]] = create_fleet(side[i]);
-    		var race = $("#"+side[i]).data('race');    		
+    		var race = $("#"+side[i]).data('race');   		
     		switch(race){
 				case "Terran":
 					break;
@@ -88,9 +122,21 @@ $(document).ready(function() {
 					break;
 		    }
 		}
-    	console.log(battle);
+    	ajaxSend(JSON.stringify(battle));
     });
 });
+
+function ajaxSend(json_object){
+	$.ajax({
+		url: "",
+		type: "POST",
+		data: {fleet : json_object}})
+	.done(function( msg ) {
+    	alert( "Data Saved: " + msg );
+  	});
+	
+}
+
 function snapToMiddle(dragger, target){
     var topMove = target.position().top - dragger.data('position').top + (target.outerHeight(true) - dragger.outerHeight(true)) / 2;
     var leftMove= target.position().left - dragger.data('position').left + (target.outerWidth(true) - dragger.outerWidth(true)) / 2;
