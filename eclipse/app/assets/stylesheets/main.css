@@ -1,0 +1,321 @@
+html{
+    height:100%;
+}
+.quan{
+	top:-10px;
+	width:50px;
+}
+.alienCruiser1{
+	background:url('alienShips_small.png') -75px -1px;
+}
+.alienCruiser2{
+	background:url('alienShips_small.png') -150px 0px;
+}
+.alienCruiser3{
+	background:url('alienShips_small.png') -225px 0px;
+}
+.alienCruiser4{
+	background:url('alienShips_small.png') 0px -75px;
+}
+.alienCruiser5{
+	background:url('alienShips_small.png') -75px -75px;
+}
+.alienCruiser6{
+	background:url('alienShips_small.png') -150px -75px;
+}
+.alienCruiser7{
+	background:url('alienShips_small.png') -225px -75px;
+}
+.alienCruiser8{
+	background:url('alienShips_small.png') 0px -148px;
+}
+.alienGC1{
+	background:url('alienShips_small.png') -75px -148px;
+}
+.alienGC2{
+	background:url('alienShips_small.png') -150px -148px;
+}
+.alienGC3{
+	background:url('alienShips_small.png') -225px -148px;
+}
+.alienGC4{
+	background:url('alienShips_small.png') 0px -225px;
+}
+.alienGC5{
+	background:url('alienShips_small.png') -75px -225px;
+}
+.races{float:left;}
+.ui-menu {
+	/*width: 150px;*/
+	z-index: 1;
+}
+.alien_container{
+	width: 60px;
+	height: 70px;
+	/*display:inline-block;*/	
+}
+.alienC{
+	position:absolute;
+	top:0px;
+	left:0px;
+}
+.head_text{
+	font-family: 'Jacques Francois', serif;
+}
+#parts_id{
+	vertical-align:middle;
+	float:left;
+}
+.container{
+	width:350px;
+}
+.container:after{
+	clear:both;
+}
+
+.hidden{display:none;}
+body{height:100%;}
+#parts_pool{  
+	margin:0 auto;
+	width:800px;
+	text-align:center;
+	height: 125px;
+	display:inline-block;
+}
+#parts_pool:after{
+	clear: both;
+}
+#parts_container{
+	
+}
+.part{ 
+	z-index: 1;
+	width: 55px; 
+	height: 55px; 
+	display: inline-block;
+	margin: 0 10px 10px 0; 
+	border:2px solid #ccc; 
+}
+.ship_container{
+	width: 22.5%;
+}
+.ship-pos{
+	margin: 0 auto;
+	height:39%;
+	width:200px;
+	position:absolute;
+}
+.part_container{ 
+	width: 55px; 
+	height: 55px;  
+	border:2px solid #ccc;
+	position: absolute; 
+}
+.ships{
+	height:40%;
+	position: relative;
+}
+.int{
+	top: 40px;
+	left: 15%;
+}
+.cru{
+	top: 40px;
+	left: 37.5%;
+}
+.dre{
+	top: 40px;
+	left: 60%;
+}
+.star{
+	top: 40px;
+	left: 82.5%;
+}
+.i1 {
+	top:90px;
+	left:0px;
+}
+.i2 {
+	top:40px;
+	left:65px;
+}
+.i3 {
+	top:105px;
+	left:65px;
+}
+.i4 {
+	top:90px;
+	left:130px;
+}
+.c1{
+	top:70px;
+	left:0px;
+}
+.c2{
+	top:135px;
+	left:0px;
+}
+.c3{
+	top:40px;
+	left:65px;
+}
+.c4{
+	top:105px;
+	left:65px;
+}
+.c5{
+	top:70px;
+	left:130px;
+}
+.c6{
+	top:135px;
+	left:130px;
+}
+.d1{
+	top:40px;
+	left:0px;
+}
+.d2{
+	top:105px;
+	left:0px;
+}
+.d3{
+	top:170px;
+	left:0px;
+}
+.d4{
+	top:70px;
+	left:65px;
+}
+.d5{
+	top:135px;
+	left:65px;
+}
+.d6{
+	top:40px;
+	left:130px;
+}
+.d7{
+	top:105px;
+	left:130px;
+}
+.d8{
+	top:170px;
+	left:130px;
+}
+.s1{
+	top:105px;
+	left:0px;	
+}
+.s2{
+	top:40px;
+	left:65px;	
+}
+.s3{
+	top:105px;
+	left:65px;	
+}
+.s4{
+	top:170px;
+	left:65px;	
+}
+.s5{
+	top:105px;
+	left:130px;	
+}
+#electron_computer, .electron_computer{
+	background:url('PartsSprite2.png') -2px -2px;
+}
+#positron_computer, .positron_computer{
+	background:url('PartsSprite2.png') -2px -60px;
+}
+#gluon_computer, .gluon_computer{
+	background:url('PartsSprite2.png') -2px -118px;
+}
+#sentient_computer, .sentient_computer{
+	background:url('PartsSprite2.png') -2px -176px;
+}
+#plasma_missle, .plasma_missle{
+	background:url('PartsSprite2.png') -60px -2px;
+}
+#flux_missle, .flux_missle{
+	background:url('PartsSprite2.png') -60px -60px;
+}
+#hyperion_source, .hyperion_source{
+	background:url('PartsSprite2.png') -60px -118px;
+}
+#ion_turret, .ion_turret{
+	background:url('PartsSprite2.png') -60px -176px;	
+}
+#improved_hull, .improved_hull{
+	background:url('PartsSprite2.png') -118px -2px;
+}
+#shard_hull, .shard_hull{
+	background:url('PartsSprite2.png') -118px -60px;
+}
+#conifold_field, .conifold_field{
+	background:url('PartsSprite2.png') -118px -118px;
+}
+#hull, .hull{
+	background:url('PartsSprite2.png') -118px -176px;
+}
+#ion_cannon, .ion_cannon{
+	background:url('PartsSprite2.png') -176px -2px;
+}
+#plasma_cannon, .plasma_cannon{
+	background:url('PartsSprite2.png') -176px -60px;
+}
+#antimatter_cannon, .antimatter_cannon{
+	background:url('PartsSprite2.png') -176px -118px;
+}
+#ion_disruptor, .ion_disruptor{
+	background:url('PartsSprite2.png') -176px -176px;
+}
+#nuclear_drive, .nuclear_drive{
+	background:url('PartsSprite2.png') -410px -58px;
+}
+#fusion_drive, .fusion_drive{
+	background:url('PartsSprite2.png') -236px -2px;
+}
+#tachyon_drive, .tachyon_drive{
+	background:url('PartsSprite2.png') -236px -60px;
+}
+#jump_drive, .jump_drive{
+	background:url('PartsSprite2.png') -236px -118px;
+}
+#conformal_drive, .conformal_drive{
+	background:url('PartsSprite2.png') -236px -176px;
+}
+#nuclear_source, .nuclear_source{
+	background:url('PartsSprite2.png') -294px -2px;
+}
+#fusion_source, .fusion_source{
+	background:url('PartsSprite2.png') -294px -60px;
+}
+#tachyon_source, .tachyon_source{
+	background:url('PartsSprite2.png') -292px -116px;
+}
+#zero_point, .zero_point{
+	background:url('PartsSprite2.png') -292px -176px;
+}
+#gauss_shield, .gauss_shield{
+	background:url('PartsSprite2.png') -352px -2px;
+}
+#phase_shield, .phase_shield{
+	background:url('PartsSprite2.png') -352px -60px;
+}
+#morph_shield, .morph_shield{
+	background:url('PartsSprite2.png') -352px -118px;
+}
+#flux_shield, .flux_shield{
+	background:url('PartsSprite2.png') -352px -176px;
+}
+#interceptor_bay, .interceptor_bay{
+	background:url('PartsSprite2.png') -410px -2px;
+}
+#axion_computer, .axion_computer{
+	background:url('PartsSprite2.png') -410px -118px;
+}
+#muon, .muon{
+	background:url('PartsSprite2.png') -413px -237px;
+}
