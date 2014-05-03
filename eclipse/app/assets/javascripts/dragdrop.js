@@ -142,7 +142,7 @@ function ajaxSend(json_object){
 		type: "POST",
 		data: {fleet : json_object}})
 	.done(function( msg ) {
-    	alert( "Data Saved: " + msg );
+    	alert( msg );
   	});
 	
 }

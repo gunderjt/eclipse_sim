@@ -3,7 +3,6 @@ require_relative 'optimal_usage.rb'
 require 'ruby-debug'
 
 class Ship
-  require_relative 'optimal_usage.rb'
   attr_accessor :computer, :initiative, :shield, :hull, :hit_recovery, :drive, :power, :red_missle, :yellow_missle, :orange_missle, :yellow_cannon, :orange_cannon, :red_cannon, :power_consumption, :note, :quantity, :id, :side, :value, :max_hull
   @@master_id = 0
   def initialize(parts, options = {})
@@ -22,7 +21,6 @@ class Ship
         end
       end
     end
-
     racial_abilities(options[:race])
     @quantity = options[:quantity] || 1
     @max_hull = @hull += 1
@@ -132,26 +130,12 @@ class Starbase < Ship
 end
 
 def create_ship(json, side, ship_type)
-  attributes = ["computer", "initiative", "shield", "hull", "hit_recovery", "drive", "power", "red_missle", "yellow_missle", "orange_missle", "yellow_cannon", "orange_cannon", "red_cannon", "power_consumption", "note", "quantity", "id", "side"]
+  attributes = ["computer", "initiative", "shield", "hull", "hit_recovery", "drive", "power", "red_missle", "yellow_missle", "orange_missle", "yellow_cannon", "orange_cannon", "red_cannon", "power_consumption", "note", "quantity"]
   h = Hash.new()
   attributes.each do |item|
     h[item.to_sym] = json[side][ship_type][item]
   end
+  h[:side] = side
   Ship.new([], h)
 end
 
-def create_battle(json)
-  sides = ["att", "def"]
-  ship_types = ["i", "c", "d", "s"]
-  att_fleet = Fleet.new("att")
-  ship_types.each do |ship_type|
-    att_fleet = add_ship(create_ship(@battle, "att", ship_type))
-  end
-  def_fleet = Fleet.new("def")
-  ship_types.each do |ship_type|
-    def_fleet = add_ship(create_ship(@battle, "def", ship_type))
-  end
-  att_fleet.sort_fleet
-  def_fleet.sort_fleet
-  Battle.new(att_fleet, def_fleet)
-end
