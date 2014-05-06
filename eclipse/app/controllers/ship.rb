@@ -1,6 +1,5 @@
 require_relative 'parts.rb'
 require_relative 'optimal_usage.rb'
-require 'ruby-debug'
 
 class Ship
   attr_accessor :computer, :initiative, :shield, :hull, :hit_recovery, :drive, :power, :red_missle, :yellow_missle, :orange_missle, :yellow_cannon, :orange_cannon, :red_cannon, :power_consumption, :note, :quantity, :id, :side, :value, :max_hull

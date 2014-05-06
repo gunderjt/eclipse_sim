@@ -1,4 +1,4 @@
-require 'ruby-debug'
+
 class Die
   attr_accessor :id, :damage, :value
   @@master_id = 0
